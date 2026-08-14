@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/Application/">
+    <Project Path="RrsChronosTimeSheet.Core.Application/RrsChronosTimeSheet.Core.Application.csproj" />
+  </Folder>
+  <Folder Name="/Domains/">
+    <Project Path="RrsChronosTimeSheet.Core.Domain/RrsChronosTimeSheet.Core.Domain.csproj" />
+  </Folder>
+  <Folder Name="/Infrastructure/">
+    <Project Path="RrsChronosTimeSheet.Core.Infrastructure.Data/RrsChronosTimeSheet.Core.Infrastructure.Data.csproj" />
+    <Project Path="RrsChronosTimeSheet.Core.Infrastructure.IoC/RrsChronosTimeSheet.Core.Infrastructure.IoC.csproj" />
+  </Folder>
+  <Folder Name="/Web/">
+    <Project Path="RrsChronosTimeSheet.Core.Web.Api/RrsChronosTimeSheet.Core.Web.Api.csproj" Id="2d48ad46-504d-43d8-81c3-774c4a3001ca" />
+  </Folder>
+</Solution>

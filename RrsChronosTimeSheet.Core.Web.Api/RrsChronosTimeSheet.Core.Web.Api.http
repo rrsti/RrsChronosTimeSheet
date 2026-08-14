@@ -1,0 +1,6 @@
+@RrsChronosTimeSheet.Core.Web.Api_HostAddress = http://localhost:5124
+
+GET {{RrsChronosTimeSheet.Core.Web.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
