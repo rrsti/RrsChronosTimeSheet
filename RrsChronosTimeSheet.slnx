@@ -11,5 +11,6 @@
   </Folder>
   <Folder Name="/Web/">
     <Project Path="RrsChronosTimeSheet.Core.Web.Api/RrsChronosTimeSheet.Core.Web.Api.csproj" Id="2d48ad46-504d-43d8-81c3-774c4a3001ca" />
+    <Project Path="RrsChronosTimeSheet.Web.Admin/RrsChronosTimeSheet.Web.Admin.csproj" Id="2a181fd4-82a1-4e0e-9007-bbae38d3c46d" />
   </Folder>
 </Solution>
