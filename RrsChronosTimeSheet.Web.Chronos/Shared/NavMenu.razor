@@ -1,0 +1,62 @@
+<FluentNav UseIcons="true"
+           UseSingleExpanded="true"
+           Width="260px">
+
+    <!-- Dashboard -->
+    <FluentNavItem Href="/" Match="NavLinkMatch.All" IconRest="@(new Icons.Regular.Size20.Home())" IconActive="@(new Icons.Filled.Size20.Home())">
+        Dashboard
+    </FluentNavItem>
+
+    <!-- Projetos -->
+    <FluentNavSectionHeader Title="Projetos" />
+
+    <FluentNavItem Href="/projetos" IconRest="@(new Icons.Regular.Size20.Board())" IconActive="@(new Icons.Filled.Size20.Board())">
+        Meus Projetos
+    </FluentNavItem>
+
+    <FluentNavItem Href="/tarefas" IconRest="@(new Icons.Regular.Size20.CheckmarkCircle())" IconActive="@(new Icons.Filled.Size20.CheckmarkCircle())">
+        Minhas Tarefas
+    </FluentNavItem>
+
+    <!-- Recursos Humanos -->
+    <FluentNavSectionHeader Title="Recursos Humanos" />
+
+    <FluentNavCategory Title="Funcionários" IconRest="@(new Icons.Regular.Size20.People())" IconActive="@(new Icons.Filled.Size20.People())">
+        <FluentNavItem Href="/profissionais">Profissionais</FluentNavItem>
+        <FluentNavItem Href="/funcoes">Funções</FluentNavItem>
+    </FluentNavCategory>
+
+    <FluentNavItem Href="/clientes" IconRest="@(new Icons.Regular.Size20.Person())" IconActive="@(new Icons.Filled.Size20.Person())">
+        Clientes
+    </FluentNavItem>
+
+    <FluentNavItem Href="/fornecedores" IconRest="@(new Icons.Regular.Size20.Building())" IconActive="@(new Icons.Filled.Size20.Building())">
+        Fornecedores
+    </FluentNavItem>
+
+    <!-- Relatórios e Dados -->
+    <FluentNavSectionHeader Title="Relatórios" />
+
+    <FluentNavItem Href="/relatorios/horas" IconRest="@(new Icons.Regular.Size20.Clock())" IconActive="@(new Icons.Filled.Size20.Clock())">
+        Horas Trabalhadas
+    </FluentNavItem>
+
+    <FluentNavItem Href="/relatorios/projetos" IconRest="@(new Icons.Regular.Size20.DocumentBulletListMultiple())" IconActive="@(new Icons.Filled.Size20.DocumentBulletListMultiple())">
+        Relatórios
+    </FluentNavItem>
+
+    <!-- Configurações -->
+    <FluentDivider />
+
+    <FluentNavItem Href="/configuracoes" IconRest="@(new Icons.Regular.Size20.Settings())" IconActive="@(new Icons.Filled.Size20.Settings())">
+        Configurações
+    </FluentNavItem>
+
+    <FluentNavItem Href="/usuarios" IconRest="@(new Icons.Regular.Size20.PersonEdit())" IconActive="@(new Icons.Filled.Size20.PersonEdit())">
+        Usuários
+    </FluentNavItem>
+
+</FluentNav>
+
+@code {
+}

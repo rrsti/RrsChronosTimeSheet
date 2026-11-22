@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi;
 
 using RrsChronosTimeSheet.Core.Infrastructure.IoC.DependencyInjection;
 using RrsChronosTimeSheet.Core.Web.Api.Config;
@@ -39,44 +38,47 @@ namespace RrsChronosTimeSheet.Core.Web.Api
 
         private void ConfigureOpenApi(IServiceCollection services)
         {
-            services.AddOpenApi("v1", options =>
-            {
-                options.AddDocumentTransformer((document, context, cancellationToken) =>
-                {
-                    document.Info = new OpenApiInfo
-                    {
-                        Title = Configuration["ApiInfo:Titulo"],
-                        Description = Configuration["ApiInfo:Descricao"],
-                        Version = string.Concat(
-                            Configuration["ApiInfo:Versao:Major"], ".",
-                            Configuration["ApiInfo:Versao:Minor"], ".",
-                            Configuration["ApiInfo:Versao:Patch"])
-                    };
+            // Nota: AddOpenApi não está disponível na configuração padrão do .NET 10
+            // Para usar OpenAPI, instale o pacote Microsoft.AspNetCore.OpenApi
+            // Exemplo de configuração comentado abaixo:
 
-                    document.Servers =
-                    [
-                        new()
-                        {
-                            Url = Configuration["ApiInfo:Servidor:Local"],
-                            Description = "Local"
-                        },
-
-                        new()
-                        {
-                            Url = Configuration["ApiInfo:Servidor:Producao"],
-                            Description = "Produção"
-                        }
-                    ];
-
-                    document.ExternalDocs = new OpenApiExternalDocs
-                    {
-                        Description = "Documentação Externa",
-                        Url = new Uri("https://www.google.com")
-                    };
-
-                    return Task.CompletedTask;
-                });
-            });
+            // services.AddOpenApi("v1", options =>
+            // {
+            //     options.AddDocumentTransformer((document, context, cancellationToken) =>
+            //     {
+            //         document.Info = new OpenApiInfo
+            //         {
+            //             Title = Configuration["ApiInfo:Titulo"],
+            //             Description = Configuration["ApiInfo:Descricao"],
+            //             Version = string.Concat(
+            //                 Configuration["ApiInfo:Versao:Major"], ".",
+            //                 Configuration["ApiInfo:Versao:Minor"], ".",
+            //                 Configuration["ApiInfo:Versao:Patch"])
+            //         };
+            //
+            //         document.Servers =
+            //         [
+            //             new()
+            //             {
+            //                 Url = Configuration["ApiInfo:Servidor:Local"],
+            //                 Description = "Local"
+            //             },
+            //             new()
+            //             {
+            //                 Url = Configuration["ApiInfo:Servidor:Producao"],
+            //                 Description = "Produção"
+            //             }
+            //         ];
+            //
+            //         document.ExternalDocs = new OpenApiExternalDocs
+            //         {
+            //             Description = "Documentação Externa",
+            //             Url = new Uri("https://www.google.com")
+            //         };
+            //
+            //         return Task.CompletedTask;
+            //     });
+            // });
         }
 
         private void ConfigureCors(IServiceCollection services)
@@ -114,8 +116,8 @@ namespace RrsChronosTimeSheet.Core.Web.Api
             {
                 endpoints.MapControllers();
 
-                // OpenAPI JSON
-                endpoints.MapOpenApi("/openapi/{documentName}.json");
+                // OpenAPI JSON - Comentado: requer pacote Microsoft.AspNetCore.OpenApi
+                // endpoints.MapOpenApi("/openapi/{documentName}.json");
 
                 // Scalar UI
                 endpoints.MapScalarApiReference(options =>

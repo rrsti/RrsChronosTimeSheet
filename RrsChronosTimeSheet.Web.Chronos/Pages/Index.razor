@@ -1,0 +1,71 @@
+﻿@page "/"
+
+<PageTitle>Dashboard - RRS Chronos TimeSheet</PageTitle>
+
+<FluentStack Orientation="Orientation.Vertical" VerticalGap="20">
+    <FluentText Weight="TextWeight.Bold" Size="TextSize.Size600">
+        Bem-vindo ao RRS Chronos TimeSheet 👋
+    </FluentText>
+
+    <FluentText Size="TextSize.Size200">
+        Sistema de gestão de tempo, projetos e recursos humanos
+    </FluentText>
+
+    <FluentStack Orientation="Orientation.Horizontal" HorizontalGap="20" Wrap="true">
+        <FluentCard Style="min-width: 280px; padding: 20px;">
+            <FluentStack Orientation="Orientation.Vertical" VerticalGap="10">
+                <FluentIcon Value="@(new Icons.Regular.Size32.Board())" Color="Color.Info" />
+                <FluentText Weight="TextWeight.Bold">Projetos</FluentText>
+                <FluentText Size="TextSize.Size100">Gerencie seus projetos e acompanhe o progresso</FluentText>
+                <FluentAnchor Href="/projetos" Appearance="Appearance.Lightweight">
+                    Acessar →
+                </FluentAnchor>
+            </FluentStack>
+        </FluentCard>
+
+        <FluentCard Style="min-width: 280px; padding: 20px;">
+            <FluentStack Orientation="Orientation.Vertical" VerticalGap="10">
+                <FluentIcon Value="@(new Icons.Regular.Size32.CheckmarkCircle())" Color="Color.Success" />
+                <FluentText Weight="TextWeight.Bold">Tarefas</FluentText>
+                <FluentText Size="TextSize.Size100">Veja e gerencie suas tarefas do dia</FluentText>
+                <FluentAnchor Href="/tarefas" Appearance="Appearance.Lightweight">
+                    Acessar →
+                </FluentAnchor>
+            </FluentStack>
+        </FluentCard>
+
+        <FluentCard Style="min-width: 280px; padding: 20px;">
+            <FluentStack Orientation="Orientation.Vertical" VerticalGap="10">
+                <FluentIcon Value="@(new Icons.Regular.Size32.Clock())" Color="Color.Warning" />
+                <FluentText Weight="TextWeight.Bold">Horas</FluentText>
+                <FluentText Size="TextSize.Size100">Registre e acompanhe suas horas trabalhadas</FluentText>
+                <FluentAnchor Href="/relatorios/horas" Appearance="Appearance.Lightweight">
+                    Acessar →
+                </FluentAnchor>
+            </FluentStack>
+        </FluentCard>
+    </FluentStack>
+
+    <FluentCard Style="padding: 20px;">
+        <FluentStack Orientation="Orientation.Vertical" VerticalGap="10">
+            <FluentText Weight="TextWeight.Bold" Size="TextSize.Size300">
+                Informações Rápidas
+            </FluentText>
+            <FluentDivider />
+            <FluentGrid Columns="repeat(3, 1fr)" Spacing="2">
+                <div>
+                    <FluentText Size="TextSize.Size100" Color="Color.Neutral">Projetos Ativos</FluentText>
+                    <FluentText Weight="TextWeight.Bold" Size="TextSize.Size400">12</FluentText>
+                </div>
+                <div>
+                    <FluentText Size="TextSize.Size100" Color="Color.Neutral">Tarefas Pendentes</FluentText>
+                    <FluentText Weight="TextWeight.Bold" Size="TextSize.Size400">8</FluentText>
+                </div>
+                <div>
+                    <FluentText Size="TextSize.Size100" Color="Color.Neutral">Horas Essa Semana</FluentText>
+                    <FluentText Weight="TextWeight.Bold" Size="TextSize.Size400">40h</FluentText>
+                </div>
+            </FluentGrid>
+        </FluentStack>
+    </FluentCard>
+</FluentStack>

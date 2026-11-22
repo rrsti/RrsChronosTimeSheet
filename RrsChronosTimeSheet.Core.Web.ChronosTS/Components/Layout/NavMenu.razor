@@ -1,0 +1,59 @@
+﻿@using Microsoft.FluentUI.AspNetCore.Components;
+
+@rendermode InteractiveServer
+
+<div class="navmenu">
+    <input type="checkbox" title="Menu expand/collapse toggle" id="navmenu-toggle" class="navmenu-icon" />
+    <label for="navmenu-toggle" class="navmenu-icon"><FluentIcon Value="@(new Icons.Regular.Size20.Navigation())" Color="Color.Fill" /></label>
+    <nav class="sitenav" aria-labelledby="main-menu">
+        <FluentNavMenu Id="main-menu" Collapsible="true" Width="250" Title="Navigation menu" @bind-Expanded="expanded" CustomToggle="true">
+            <FluentNavLink Icon="@(new Icons.Regular.Size20.Home())" Href="/">Início</FluentNavLink>
+            <FluentNavLink Icon="@(new Icons.Regular.Size20.Dashboard())" Href="/dashboard">Dashboard</FluentNavLink>
+            <FluentNavLink Icon="@(new Icons.Regular.Size20.Board())" Href="/dashboard">Quadro de tarefas</FluentNavLink>
+            <FluentNavLink Icon="@(new Icons.Regular.Size20.Timer3())" Href="/dashboard">Registro de horas</FluentNavLink>
+            <FluentNavGroup Title="Cadastro" Icon="@(new Icons.Regular.Size20.DocumentBulletList())">
+                <FluentNavLink Icon="@(new Icons.Regular.Size20.People())" Href="/clientes/index">Clientes</FluentNavLink>
+                <FluentNavLink Icon="@(new Icons.Regular.Size20.PeopleTeam())" Href="/alunos-search">Colaboradores</FluentNavLink>
+                <FluentNavLink Icon="@(new Icons.Regular.Size20.Briefcase())" Href="/alunos-search">Fornecedores</FluentNavLink>
+                <FluentNavLink Icon="@(new Icons.Regular.Size20.GanttChart())" Href="/dashboard">Projetos</FluentNavLink>
+                <FluentNavLink Icon="@(new Icons.Regular.Size20.TaskListSquareLtr())" Href="/dashboard">Tarefas</FluentNavLink>
+            </FluentNavGroup>
+            <FluentNavGroup Title="Relatórios" Icon="@(new Icons.Regular.Size20.NotebookSubsection())">
+                <FluentNavLink Icon="@(new Icons.Regular.Size20.Document())" Href="/tipodocumento-index">Tipos</FluentNavLink>
+            </FluentNavGroup>
+            <FluentNavGroup Title="Sistema" Icon="@(new Icons.Regular.Size20.System())">
+                <FluentNavLink Icon="@(new Icons.Regular.Size20.BuildingPeople())" Href="/usuario-index">Usuários</FluentNavLink>
+            </FluentNavGroup>
+
+            
+        </FluentNavMenu>
+    </nav>
+</div>
+
+
+@code
+{
+    const string FluentUIBlazor_Url = "https://fluentui-blazor-v5.azurewebsites.net/";
+    //FluentNav nav = default!;
+
+    //NavDensity Density;
+    bool UseIcons = true;
+    bool UseMultipleExpanded = true;
+
+    private bool expanded = true;
+
+    async Task ShowInformationAsync()
+    {
+        await DialogService.ShowInfoAsync("This is a message");
+    }
+
+    async Task ExpandRetirementAsync()
+    {
+      //  await nav.ExpandCategoryAsync("retirement");
+    }
+
+    async Task CollapseRetirementAsync()
+    {
+        //await nav.CollapseCategoryAsync("retirement");
+    }
+}

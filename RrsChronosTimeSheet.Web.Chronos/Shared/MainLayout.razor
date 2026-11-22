@@ -1,0 +1,33 @@
+﻿@inherits LayoutComponentBase
+<FluentProviders />
+<PageTitle>RrsChronosTimeSheet.Web.Chronos</PageTitle>
+<FluentLayout>
+
+    <!-- Header -->
+    <FluentLayoutItem Area="@LayoutArea.Header">
+        <FluentStack VerticalAlignment="VerticalAlignment.Center">
+            <FluentLayoutHamburger />
+            <FluentText Weight="TextWeight.Bold"
+                        Size="TextSize.Size400">
+                My application
+            </FluentText>
+        </FluentStack>
+    </FluentLayoutItem>
+
+    <!-- Navigation -->
+    <FluentLayoutItem Area="@LayoutArea.Navigation" Width="250px">
+        <NavMenu></NavMenu>
+    </FluentLayoutItem>
+
+    <!-- Content -->
+    <FluentLayoutItem Area="@LayoutArea.Content"
+                      Padding="@Padding.All3">
+        @Body
+    </FluentLayoutItem>
+
+    <!-- Footer -->
+    <FluentLayoutItem Area="@LayoutArea.Footer">
+        Powered by Microsoft Fluent UI Blazor @DateTime.Now.Year
+    </FluentLayoutItem>
+
+</FluentLayout>

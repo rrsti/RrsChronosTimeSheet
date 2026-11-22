@@ -1,0 +1,48 @@
+﻿@page "/clientes/index"
+@rendermode InteractiveServer
+@using Microsoft.FluentUI.AspNetCore.Components
+
+<PageTitle>
+    @_pageTitle
+</PageTitle>
+ <FluentGrid Style="background-color: var(--neutral-layer-3); overflow: hidden; padding: 3px; margin-top:-15px;" Spacing="3">
+    <FluentGridItem Justify="JustifyContent.FlexStart" Style="min-width: 200px;">
+        <FluentLabel>Insira uma das opções para o filtro:</FluentLabel>
+    </FluentGridItem>
+    <FluentGridItem Justify="JustifyContent.FlexEnd">
+        <FluentTextField Id="txtIdCliente" Placeholder="Código do Cliente" @bind-Value="_nomeFiltro" @onkeydown="HandleKeyDown"></FluentTextField>&nbsp;&nbsp;
+    </FluentGridItem>
+    <FluentGridItem Justify="JustifyContent.FlexEnd" Gap="10px">
+        <FluentButton Appearance="Appearance.Lightweight" IconStart="@(new Icons.Regular.Size16.Filter())" OnClick="() => CarregaListagem()" >Filtrar</FluentButton>
+        <FluentButton Appearance="Appearance.Accent" IconStart="@(new Icons.Regular.Size16.Add())" OnClick="@(() => Adicionar())">Novo</FluentButton>
+        <FluentButton Appearance="Appearance.Accent" IconStart="@(new Icons.Regular.Size16.Print())" OnClick="@(() => Imprimir())">Imprimir</FluentButton>
+    </FluentGridItem>
+</FluentGrid>
+
+@code {
+    private string _pageTitle = "Clientes do sistema";
+    private string _nomeFiltro = string.Empty;
+
+    public void CarregaListagem()
+    {
+        // Implement logic to load the list of clients based on the filter criteria
+    }
+
+    public void Adicionar()
+    {
+        // Implement logic to create a new client entry
+    }
+
+    public void Imprimir()
+    {
+        // Implement logic to print the list of clients
+    }
+
+    private void HandleKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            CarregaListagem();
+        }
+    }
+}

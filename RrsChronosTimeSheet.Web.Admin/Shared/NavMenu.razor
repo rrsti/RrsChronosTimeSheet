@@ -1,20 +1,39 @@
-﻿<FluentNavMenu Width="250">
-    <FluentNavLink Icon="@(new Icons.Regular.Size24.Home())">Item 1</FluentNavLink>
-    <FluentNavLink Icon="@(new Icons.Regular.Size24.Cloud())">Item 2</FluentNavLink>
-    <FluentNavGroup Title="Item 3">
-        <FluentNavLink Icon="@(new Icons.Regular.Size24.LeafOne())">Item 3.1</FluentNavLink>
-        <FluentNavLink Icon="@(new Icons.Regular.Size24.LeafTwo())">Item 3.2</FluentNavLink>
-    </FluentNavGroup>
-    <FluentNavLink Icon="@(new Icons.Regular.Size24.CalendarAgenda())" Disabled="true">Item 4</FluentNavLink>
-</FluentNavMenu>
+﻿<div class="navmenu">
+    <input type="checkbox" title="Menu expand/collapse toggle" id="navmenu-toggle" class="navmenu-icon" />
+    <label for="navmenu-toggle" class="navmenu-icon"><FluentIcon Value="@(new Icons.Regular.Size20.Navigation())" Color="Color.Fill" /></label>
+    <nav class="sitenav" aria-labelledby="main-menu">
+        <FluentNavMenu Id="main-menu" Collapsible="true" Width="250" Title="Navigation menu" @bind-Expanded="expanded" CustomToggle="true">
+            <FluentNavLink Href="/" Match="NavLinkMatch.All" Icon="@(new Icons.Regular.Size20.Home())" IconColor="Color.Accent">Home</FluentNavLink>
+            <FluentNavLink Href="counter" Icon="@(new Icons.Regular.Size20.NumberSymbolSquare())" IconColor="Color.Accent">Counter</FluentNavLink>
+            <FluentNavLink Href="weather" Icon="@(new Icons.Regular.Size20.WeatherPartlyCloudyDay())" IconColor="Color.Accent">Weather</FluentNavLink>
+        </FluentNavMenu>
+    </nav>
+</div>
 
 @code {
-    private bool collapseNavMenu = true;
+    private bool expanded = true;
 
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private bool _vertical = true;
+    private bool _showSearch = true;
 
-    private void ToggleNavMenu()
+    private static Icon mnuInicio(bool active = false) => active ? new Icons.Regular.Size24.Home() : new Icons.Regular.Size24.Home();
+
+    private static Icon mnuAlunos(bool active = false) => active ? new Icons.Regular.Size24.People() : new Icons.Regular.Size24.People();
+
+    // private static Icon mnuTurma(bool active = false) => active ? new Icons.Regular.Size24.HatGraduation() : new Icons.Regular.Size24.HatGraduation();
+
+    // private static Icon mnuCurso(bool active = false) => active ? new Icons.Regular.Size24.Bookmark() : new Icons.Regular.Size24.Bookmark();
+
+    // private static Icon mnuGrade(bool active = false) => active ? new Icons.Regular.Size24.Grid() : new Icons.Regular.Size24.Grid();
+
+    // private static Icon mnuFinanceiro(bool active = false) => active ? new Icons.Regular.Size24.AppGeneric() : new Icons.Regular.Size24.AppGeneric();
+
+    private static Icon mnuUsuario(bool active = false) => active ? new Icons.Regular.Size24.PeopleAdd() : new Icons.Regular.Size24.PeopleAdd();
+
+    private void HandlePopover(bool visible) { } // DemoLogger.WriteLine($"Popover visibility changed to {visible}");
+
+    private void HandleOrientationChanged()
     {
-        collapseNavMenu = !collapseNavMenu;
+        //DemoLogger.WriteLine($"Orientation changed to {(_vertical ? "vertical" : "horizontal")}");
     }
 }
